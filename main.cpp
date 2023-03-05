@@ -7,6 +7,7 @@
 
 #include <iostream>
 #include <opencv2/opencv.hpp>
+#include "operations.h"
 
 int main() {
   // open the default camera.
@@ -22,6 +23,11 @@ int main() {
   std::string window_name = "Real-Time-Video";
   cv::namedWindow(window_name);
 
+  cv::Mat gray_frame; // container to store greyscaled frame;
+  cv::Mat valid_frame; // container to store valid frame containing chessboard.
+  std::vector<std::vector<cv::Vec3f>> point_list; // 2D vector to store world coordinates.
+  std::vector<std::vector<cv::Point2f>> corners_list; // 2D vector to store corner points.
+
   while (true) {
 	cv::Mat frame; // Mat object to capture each frame of video.
 	bool bsuccess = cap.read(frame);
@@ -33,9 +39,9 @@ int main() {
 	  break;
 	}
 
-	cv::Mat gray_frame; // container to store greyscaled frame;
-	cv::cvtColor(frame, gray_frame, cv::COLOR_BGR2GRAY);
 	std::vector<cv::Point2f> corners; // Vector to store the corners of the chess board.
+	std::vector<cv::Vec3f> point_set; // Vector to store world coordinates.
+	cv::cvtColor(frame, gray_frame, cv::COLOR_BGR2GRAY);
 	bool found = cv::findChessboardCorners(gray_frame, cv::Size(9, 6), corners);
 
 	if (found) { // checking whether bound is found or not.
@@ -45,6 +51,7 @@ int main() {
 					   cv::Size(11, 11),
 					   cv::Size(-1, -1),
 					   cv::TermCriteria(cv::TermCriteria::EPS + cv::TermCriteria::COUNT, 40, 0.001));
+	  valid_frame = gray_frame.clone();
 	}
 
 	// draw the corners in the chessboard.
@@ -56,6 +63,14 @@ int main() {
 	if (k=='q') {
 	  cv::destroyWindow(window_name);
 	  break;
+	} else if (k=='s') { // Save the corner pixels and its respective world coordinates.
+	  if (!valid_frame.empty()) {
+		corners_list.push_back(corners);
+		get_world_coordinates(point_set, 9, 6);
+		point_list.push_back(point_set);
+
+		//std::cout<<check_validity(point_list, corners_list)<<std::endl;
+	  }
 	}
   }
   return 0;

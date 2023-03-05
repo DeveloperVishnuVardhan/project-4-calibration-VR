@@ -27,7 +27,7 @@
 					[
 						0
 					],
-					"name" : "imgDisplay.cpp.cpp",
+					"name" : "main.cpp",
 					"targetIndexes" : 
 					[
 						0
@@ -39,7 +39,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "main.cpp::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-main.cpp-Debug-4d2c23e975b32f7ff724.json",
+					"jsonFile" : "target-main.cpp-Debug-1b55385e2801f121f730.json",
 					"name" : "main.cpp",
 					"projectIndex" : 0
 				}

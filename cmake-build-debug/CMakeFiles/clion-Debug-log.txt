@@ -7,7 +7,6 @@ CMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required):
   CMake that the project does not need compatibility with older versions.
 
 
--- Found OpenCV: /usr/local (found version "4.7.0") 
 -- Configuring done
 -- Generating done
 -- Build files have been written to: /Users/jyothivishnuvardhankolla/Desktop/Project-4-Calibration-Augmented-Reality/cmake-build-debug
