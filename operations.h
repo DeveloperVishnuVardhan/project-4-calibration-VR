@@ -58,6 +58,11 @@ int perform_calibration(std::vector<std::vector<cv::Vec3f>> &point_list,
 int initialize_camera_distortion_mats(cv::Mat &cameraMatrix, cv::Mat &distortion_coeff, cv::Mat &frame);
 
 /*
- *
+ * A function that saves cameraMatrix and distortion_coefficients into a XML file.
  */
 int save_calibration(cv::Mat &cameraMatrix, cv::Mat &distortion_coefficients);
+
+/*
+ * A function that displays cameraMatrix and distortionMatrix on the frame on real time.
+ */
+int display_rot_trans(cv::Mat &cameraMatrix, cv::Mat &distortionMatrix, cv::Mat &frame);

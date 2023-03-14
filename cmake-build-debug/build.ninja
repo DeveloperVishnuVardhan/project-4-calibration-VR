@@ -77,6 +77,46 @@ build main.cpp: CXX_EXECUTABLE_LINKER__main.2ecpp_Debug CMakeFiles/main.cpp.dir/
   TARGET_FILE = main.cpp
   TARGET_PDB = main.cpp.dbg
 
+# =============================================================================
+# Object build statements for EXECUTABLE target vir_reality.cpp
+
+
+#############################################
+# Order-only phony target for vir_reality.cpp
+
+build cmake_object_order_depends_target_vir_reality.cpp: phony || CMakeFiles/vir_reality.cpp.dir
+
+build CMakeFiles/vir_reality.cpp.dir/vir_reality.cpp.o: CXX_COMPILER__vir_reality.2ecpp_Debug /Users/jyothivishnuvardhankolla/Desktop/Project-4-Calibration-Augmented-Reality/vir_reality.cpp || cmake_object_order_depends_target_vir_reality.cpp
+  DEP_FILE = CMakeFiles/vir_reality.cpp.dir/vir_reality.cpp.o.d
+  FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.1.sdk -fcolor-diagnostics -std=gnu++11
+  INCLUDES = -isystem /usr/local/include/opencv4
+  OBJECT_DIR = CMakeFiles/vir_reality.cpp.dir
+  OBJECT_FILE_DIR = CMakeFiles/vir_reality.cpp.dir
+
+build CMakeFiles/vir_reality.cpp.dir/operations.cpp.o: CXX_COMPILER__vir_reality.2ecpp_Debug /Users/jyothivishnuvardhankolla/Desktop/Project-4-Calibration-Augmented-Reality/operations.cpp || cmake_object_order_depends_target_vir_reality.cpp
+  DEP_FILE = CMakeFiles/vir_reality.cpp.dir/operations.cpp.o.d
+  FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.1.sdk -fcolor-diagnostics -std=gnu++11
+  INCLUDES = -isystem /usr/local/include/opencv4
+  OBJECT_DIR = CMakeFiles/vir_reality.cpp.dir
+  OBJECT_FILE_DIR = CMakeFiles/vir_reality.cpp.dir
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target vir_reality.cpp
+
+
+#############################################
+# Link the executable vir_reality.cpp
+
+build vir_reality.cpp: CXX_EXECUTABLE_LINKER__vir_reality.2ecpp_Debug CMakeFiles/vir_reality.cpp.dir/vir_reality.cpp.o CMakeFiles/vir_reality.cpp.dir/operations.cpp.o | /usr/local/lib/libopencv_gapi.4.7.0.dylib /usr/local/lib/libopencv_highgui.4.7.0.dylib /usr/local/lib/libopencv_ml.4.7.0.dylib /usr/local/lib/libopencv_objdetect.4.7.0.dylib /usr/local/lib/libopencv_photo.4.7.0.dylib /usr/local/lib/libopencv_stitching.4.7.0.dylib /usr/local/lib/libopencv_video.4.7.0.dylib /usr/local/lib/libopencv_videoio.4.7.0.dylib /usr/local/lib/libopencv_imgcodecs.4.7.0.dylib /usr/local/lib/libopencv_dnn.4.7.0.dylib /usr/local/lib/libopencv_calib3d.4.7.0.dylib /usr/local/lib/libopencv_features2d.4.7.0.dylib /usr/local/lib/libopencv_flann.4.7.0.dylib /usr/local/lib/libopencv_imgproc.4.7.0.dylib /usr/local/lib/libopencv_core.4.7.0.dylib
+  FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.1.sdk
+  LINK_LIBRARIES = -Wl,-rpath,/usr/local/lib  /usr/local/lib/libopencv_gapi.4.7.0.dylib  /usr/local/lib/libopencv_highgui.4.7.0.dylib  /usr/local/lib/libopencv_ml.4.7.0.dylib  /usr/local/lib/libopencv_objdetect.4.7.0.dylib  /usr/local/lib/libopencv_photo.4.7.0.dylib  /usr/local/lib/libopencv_stitching.4.7.0.dylib  /usr/local/lib/libopencv_video.4.7.0.dylib  /usr/local/lib/libopencv_videoio.4.7.0.dylib  /usr/local/lib/libopencv_imgcodecs.4.7.0.dylib  /usr/local/lib/libopencv_dnn.4.7.0.dylib  /usr/local/lib/libopencv_calib3d.4.7.0.dylib  /usr/local/lib/libopencv_features2d.4.7.0.dylib  /usr/local/lib/libopencv_flann.4.7.0.dylib  /usr/local/lib/libopencv_imgproc.4.7.0.dylib  /usr/local/lib/libopencv_core.4.7.0.dylib
+  OBJECT_DIR = CMakeFiles/vir_reality.cpp.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = vir_reality.cpp
+  TARGET_PDB = vir_reality.cpp.dbg
+
 
 #############################################
 # Utility command for edit_cache
@@ -111,7 +151,7 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 #############################################
 # Folder: /Users/jyothivishnuvardhankolla/Desktop/Project-4-Calibration-Augmented-Reality/cmake-build-debug
 
-build all: phony main.cpp
+build all: phony main.cpp vir_reality.cpp
 
 # =============================================================================
 # Unknown Build Time Dependencies.

@@ -21,7 +21,7 @@ int get_world_coordinates(std::vector<cv::Vec3f> &point_set, int rows, int cols,
   // Iterate through rows.
   for (int i = 0; i < rows; i++) {
 	for (int j = 0; j < cols; j++) {
-	  point_set.emplace_back(j, i, 0);
+	  point_set.emplace_back(j, -i, 0);
 	}
   }
   return 0;
@@ -149,22 +149,9 @@ int perform_calibration(std::vector<std::vector<cv::Vec3f>> &point_list,
 }
 
 /*
- *
+ * A function that saves cameraMatrix and distortion_coefficients into a XML file.
  */
 int save_calibration(cv::Mat &cameraMatrix, cv::Mat &distortion_coefficients) {
-  /*cv::Mat camera_matrix =
-	  (cv::Mat_<double>(3, 3) << cameraMatrix.at<double>(0, 0), cameraMatrix.at<double>(0, 1), cameraMatrix
-		  .at<double>(0, 2),
-		  cameraMatrix.at<double>(1, 0), cameraMatrix.at<double>(1, 1), cameraMatrix.at<double>(1, 2),
-		  cameraMatrix.at<double>(2, 0), cameraMatrix.at<double>(2, 1), cameraMatrix.at<double>(2, 2));
-
-  cv::Mat dist_coeffs = (cv::Mat_<double>(5, 1) << distortion_coefficients.at<double>(0, 0),
-	  distortion_coefficients.at<double>(1, 0),
-	  distortion_coefficients.at<double>(2, 0),
-	  distortion_coefficients.at<double>(3, 0),
-	  distortion_coefficients.at<double>(4, 0));*/
-
-  // Open the XML file for writing
   cv::FileStorage fs
 	  ("/Users/jyothivishnuvardhankolla/Desktop/Project-4-Calibration-Augmented-Reality/camera_params.xml",
 	   cv::FileStorage::WRITE);
@@ -176,5 +163,17 @@ int save_calibration(cv::Mat &cameraMatrix, cv::Mat &distortion_coefficients) {
   // Release the file storage
   fs.release();
 
+  return 0;
+}
+
+/*
+ * A function that displays cameraMatrix and distortionMatrix on the frame on real time.
+ */
+int display_rot_trans(cv::Mat &cameraMatrix, cv::Mat &distortionMatrix, cv::Mat &frame) {
+  std::stringstream ss, ss1;
+  ss << "Camera Matrix" << cameraMatrix;
+  ss1 << "Distortion coefficients" << distortionMatrix;
+  cv::putText(frame, ss.str(), cv::Point(20, 50), cv::FONT_HERSHEY_COMPLEX, 0.8, cv::Scalar(0, 0, 255), 2);
+  cv::putText(frame, ss1.str(), cv::Point(20, 80), cv::FONT_HERSHEY_COMPLEX, 0.6, cv::Scalar(234, 0, 255), 2);
   return 0;
 }

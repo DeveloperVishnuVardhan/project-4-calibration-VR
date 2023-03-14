@@ -15,7 +15,8 @@
 					"source" : ".",
 					"targetIndexes" : 
 					[
-						0
+						0,
+						1
 					]
 				}
 			],
@@ -30,7 +31,8 @@
 					"name" : "main.cpp",
 					"targetIndexes" : 
 					[
-						0
+						0,
+						1
 					]
 				}
 			],
@@ -39,8 +41,15 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "main.cpp::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-main.cpp-Debug-1b55385e2801f121f730.json",
+					"jsonFile" : "target-main.cpp-Debug-b0192529f1e0fcb62c9b.json",
 					"name" : "main.cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "vir_reality.cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-vir_reality.cpp-Debug-e4c8b3c99c97e6b9812c.json",
+					"name" : "vir_reality.cpp",
 					"projectIndex" : 0
 				}
 			]
