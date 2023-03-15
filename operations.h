@@ -66,3 +66,15 @@ int save_calibration(cv::Mat &cameraMatrix, cv::Mat &distortion_coefficients);
  * A function that displays cameraMatrix and distortionMatrix on the frame on real time.
  */
 int display_rot_trans(cv::Mat &cameraMatrix, cv::Mat &distortionMatrix, cv::Mat &frame);
+
+/*
+ * A function that projects a square object on to world-coordinates.
+ */
+int draw_square(cv::Mat &rotation_vector, cv::Mat &translation_vector, cv::Mat &cameraMatrix,
+				cv::Mat &distortion_coefficient, cv::Mat &frame);
+
+/*
+ * A function that draws and displays a cuboid on the world.
+ */
+int draw_house(cv::Mat &rotation_vector, cv::Mat &translation_vector, cv::Mat &cameraMatrix,
+				cv::Mat &distortion_coefficient, cv::Mat &frame);

@@ -11,7 +11,7 @@
 
 int main() {
   // open the default camera.
-  cv::VideoCapture cap(0);
+  cv::VideoCapture cap(1);
 
   // if not success, exit the program.
   if (!cap.isOpened()) {
@@ -77,6 +77,7 @@ int main() {
 	  cv::circle(frame, imagePoints[45], 15, cv::Scalar(0, 0, 255), 7);
 	  cv::circle(frame, imagePoints[53], 15, cv::Scalar(0, 0, 255), 7);
 	  cv::drawFrameAxes(frame, cameraMatrix, distortion_coefficient, rotation_vector, translation_vector, 1);
+	  draw_house(rotation_vector, translation_vector, cameraMatrix, distortion_coefficient, frame);
 	}
 
 	cv::imshow(window_name, frame);
