@@ -184,11 +184,13 @@ int display_rot_trans(cv::Mat &cameraMatrix, cv::Mat &distortionMatrix, cv::Mat 
 int draw_square(cv::Mat &rotation_vector, cv::Mat &translation_vector, cv::Mat &cameraMatrix,
 				cv::Mat &distortion_coefficient, cv::Mat &frame) {
   std::vector<cv::Point3f> objectPoints; // Vector to store world coordinates of object.
+  // Points on 2d Plane.
   objectPoints.push_back(cv::Point3f(3, -1, 0));
   objectPoints.push_back(cv::Point3f(4, -1, 0));
   objectPoints.push_back(cv::Point3f(4, -2, 0));
   objectPoints.push_back(cv::Point3f(3, -2, 0));
 
+  // Points on 3D Plane.
   objectPoints.push_back(cv::Point3f(3, -1, 5));
   objectPoints.push_back(cv::Point3f(4, -1, 5));
   objectPoints.push_back(cv::Point3f(4, -2, 5));
@@ -202,16 +204,19 @@ int draw_square(cv::Mat &rotation_vector, cv::Mat &translation_vector, cv::Mat &
 					distortion_coefficient,
 					imagePoints);
 
+  // Bottom part of the cube.
   cv::line(frame, imagePoints[0], imagePoints[1], cv::Scalar(0, 0, 255), 2, cv::LINE_AA);
   cv::line(frame, imagePoints[1], imagePoints[2], cv::Scalar(0, 0, 255), 2, cv::LINE_AA);
   cv::line(frame, imagePoints[2], imagePoints[3], cv::Scalar(0, 0, 255), 2, cv::LINE_AA);
   cv::line(frame, imagePoints[3], imagePoints[0], cv::Scalar(0, 0, 255), 2, cv::LINE_AA);
 
+  // Top part of the cube.
   cv::line(frame, imagePoints[4], imagePoints[5], cv::Scalar(0, 0, 255), 2, cv::LINE_AA);
   cv::line(frame, imagePoints[5], imagePoints[6], cv::Scalar(0, 0, 255), 2, cv::LINE_AA);
   cv::line(frame, imagePoints[6], imagePoints[7], cv::Scalar(0, 0, 255), 2, cv::LINE_AA);
   cv::line(frame, imagePoints[7], imagePoints[4], cv::Scalar(0, 0, 255), 2, cv::LINE_AA);
 
+  // lines connectiong bottom and top part of the cube.
   cv::line(frame, imagePoints[0], imagePoints[4], cv::Scalar(0, 0, 255), 2, cv::LINE_AA);
   cv::line(frame, imagePoints[1], imagePoints[5], cv::Scalar(0, 0, 255), 2, cv::LINE_AA);
   cv::line(frame, imagePoints[2], imagePoints[6], cv::Scalar(0, 0, 255), 2, cv::LINE_AA);
@@ -225,18 +230,22 @@ int draw_square(cv::Mat &rotation_vector, cv::Mat &translation_vector, cv::Mat &
 int draw_house(cv::Mat &rotation_vector, cv::Mat &translation_vector, cv::Mat &cameraMatrix,
 			   cv::Mat &distortion_coefficient, cv::Mat &frame) {
   std::vector<cv::Point3f> objectPoints;
+  // Points for floor of the house.
   objectPoints.push_back(cv::Point3f(0, 0, 0));
   objectPoints.push_back(cv::Point3f(8, 0, 0));
   objectPoints.push_back(cv::Point3f(8, -5, 0));
   objectPoints.push_back(cv::Point3f(0, -5, 0));
 
+  // points for roof of the house.
   objectPoints.push_back(cv::Point3f(0, 0, 5));
   objectPoints.push_back(cv::Point3f(8, 0, 5));
   objectPoints.push_back(cv::Point3f(8, -5, 5));
   objectPoints.push_back(cv::Point3f(0, -5, 5));
 
+  // centre of the dome.
   objectPoints.push_back(cv::Point3f(4, -2, 9));
 
+  // points for the door of the house.
   objectPoints.push_back(cv::Point3f(3, -5, 0));
   objectPoints.push_back(cv::Point3f(4, -5, 0));
   objectPoints.push_back(cv::Point3f(3, -5, 2.5));
@@ -246,27 +255,31 @@ int draw_house(cv::Mat &rotation_vector, cv::Mat &translation_vector, cv::Mat &c
   std::vector<cv::Point2f> imagePoints;
   projectPoints(objectPoints, rotation_vector, translation_vector, cameraMatrix, distortion_coefficient, imagePoints);
 
-  // Draw the edges on the image
+  // constructiong the floor of the house.
   cv::line(frame, imagePoints[0], imagePoints[1], cv::Scalar(0, 0, 255), 5);
   cv::line(frame, imagePoints[1], imagePoints[2], cv::Scalar(0, 0, 255), 5);
   cv::line(frame, imagePoints[2], imagePoints[3], cv::Scalar(0, 0, 255), 5);
   cv::line(frame, imagePoints[3], imagePoints[0], cv::Scalar(0, 0, 255), 5);
 
+  // constructiong the roof of the house.
   cv::line(frame, imagePoints[4], imagePoints[5], cv::Scalar(34, 124, 255), 5, cv::LINE_AA);
   cv::line(frame, imagePoints[5], imagePoints[6], cv::Scalar(34, 124, 255), 5, cv::LINE_AA);
   cv::line(frame, imagePoints[6], imagePoints[7], cv::Scalar(34, 124, 255), 5, cv::LINE_AA);
   cv::line(frame, imagePoints[7], imagePoints[4], cv::Scalar(34, 124, 255), 5, cv::LINE_AA);
 
+  // connecting floor and roof with pillars.
   cv::line(frame, imagePoints[0], imagePoints[4], cv::Scalar(0, 255, 0), 5, cv::LINE_AA);
   cv::line(frame, imagePoints[1], imagePoints[5], cv::Scalar(0, 255, 0), 5, cv::LINE_AA);
   cv::line(frame, imagePoints[2], imagePoints[6], cv::Scalar(0, 255, 0), 5, cv::LINE_AA);
   cv::line(frame, imagePoints[3], imagePoints[7], cv::Scalar(0, 255, 0), 5, cv::LINE_AA);
 
+  // joining roof with centre of the dome.
   cv::line(frame, imagePoints[4], imagePoints[8], cv::Scalar(255, 0, 0), 5, cv::LINE_AA);
   cv::line(frame, imagePoints[5], imagePoints[8], cv::Scalar(255, 0, 0), 5, cv::LINE_AA);
   cv::line(frame, imagePoints[6], imagePoints[8], cv::Scalar(255, 0, 0), 5, cv::LINE_AA);
   cv::line(frame, imagePoints[7], imagePoints[8], cv::Scalar(255, 0, 0), 5, cv::LINE_AA);
 
+  // constructing the door for the house.
   cv::line(frame, imagePoints[9], imagePoints[11], cv::Scalar(255, 0, 255), 5, cv::LINE_AA);
   cv::line(frame, imagePoints[10], imagePoints[12], cv::Scalar(255, 0, 255), 5, cv::LINE_AA);
   cv::line(frame, imagePoints[11], imagePoints[12], cv::Scalar(255, 0, 255), 5, cv::LINE_AA);

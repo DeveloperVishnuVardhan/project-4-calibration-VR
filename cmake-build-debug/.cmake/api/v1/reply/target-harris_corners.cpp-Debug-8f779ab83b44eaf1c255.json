@@ -2,7 +2,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "vir_reality.cpp"
+			"path" : "harris_corners.cpp"
 		}
 	],
 	"backtrace" : 1,
@@ -26,13 +26,13 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 6,
+				"line" : 7,
 				"parent" : 0
 			},
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 8,
+				"line" : 10,
 				"parent" : 0
 			},
 			{
@@ -79,7 +79,7 @@
 			]
 		}
 	],
-	"id" : "vir_reality.cpp::@6890427a1f51a3e7e1df",
+	"id" : "harris_corners.cpp::@6890427a1f51a3e7e1df",
 	"link" : 
 	{
 		"commandFragments" : 
@@ -174,8 +174,8 @@
 		],
 		"language" : "CXX"
 	},
-	"name" : "vir_reality.cpp",
-	"nameOnDisk" : "vir_reality.cpp",
+	"name" : "harris_corners.cpp",
+	"nameOnDisk" : "harris_corners.cpp",
 	"paths" : 
 	{
 		"build" : ".",
@@ -204,7 +204,7 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "vir_reality.cpp",
+			"path" : "harris_corners.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{

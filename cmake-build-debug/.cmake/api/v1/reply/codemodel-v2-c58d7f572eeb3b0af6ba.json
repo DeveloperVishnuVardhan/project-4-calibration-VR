@@ -16,7 +16,8 @@
 					"targetIndexes" : 
 					[
 						0,
-						1
+						1,
+						2
 					]
 				}
 			],
@@ -32,7 +33,8 @@
 					"targetIndexes" : 
 					[
 						0,
-						1
+						1,
+						2
 					]
 				}
 			],
@@ -40,15 +42,22 @@
 			[
 				{
 					"directoryIndex" : 0,
+					"id" : "harris_corners.cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-harris_corners.cpp-Debug-8f779ab83b44eaf1c255.json",
+					"name" : "harris_corners.cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
 					"id" : "main.cpp::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-main.cpp-Debug-b0192529f1e0fcb62c9b.json",
+					"jsonFile" : "target-main.cpp-Debug-2b5a4b4203761a12ba98.json",
 					"name" : "main.cpp",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "vir_reality.cpp::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-vir_reality.cpp-Debug-e4c8b3c99c97e6b9812c.json",
+					"jsonFile" : "target-vir_reality.cpp-Debug-318637a0493a44963ae0.json",
 					"name" : "vir_reality.cpp",
 					"projectIndex" : 0
 				}

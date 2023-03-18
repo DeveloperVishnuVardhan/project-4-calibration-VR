@@ -63,8 +63,9 @@ int main() {
 					   cv::Size(-1, -1),
 					   cv::TermCriteria(cv::TermCriteria::EPS + cv::TermCriteria::COUNT, 30, 0.1));
 	  get_world_coordinates(point_set, 6, 9, 23.5f);
+	  // get rotation, translation matrix of the camera.
 	  cv::solvePnP(point_set, corners, cameraMatrix, distortion_coefficient, rotation_vector, translation_vector);
-	  display_rot_trans(cameraMatrix, distortion_coefficient, frame);
+	  display_rot_trans(cameraMatrix, distortion_coefficient, frame); // display extrinsic param in real time.
 	  std::vector<cv::Point2f> imagePoints;
 	  cv::projectPoints(point_set,
 						rotation_vector,
@@ -72,12 +73,17 @@ int main() {
 						cameraMatrix,
 						distortion_coefficient,
 						imagePoints);
+	  // draw circles for corners and display a 3D axes through origin.
 	  cv::circle(frame, imagePoints[0], 15, cv::Scalar(0, 0, 255), 7);
 	  cv::circle(frame, imagePoints[8], 15, cv::Scalar(0, 0, 255), 7);
 	  cv::circle(frame, imagePoints[45], 15, cv::Scalar(0, 0, 255), 7);
 	  cv::circle(frame, imagePoints[53], 15, cv::Scalar(0, 0, 255), 7);
 	  cv::drawFrameAxes(frame, cameraMatrix, distortion_coefficient, rotation_vector, translation_vector, 1);
-	  draw_house(rotation_vector, translation_vector, cameraMatrix, distortion_coefficient, frame);
+	  draw_house(rotation_vector,
+				 translation_vector,
+				 cameraMatrix,
+				 distortion_coefficient,
+				 frame); // Draw a house to the real-world.
 	}
 
 	cv::imshow(window_name, frame);
