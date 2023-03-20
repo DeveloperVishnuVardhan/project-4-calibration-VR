@@ -286,3 +286,22 @@ int draw_house(cv::Mat &rotation_vector, cv::Mat &translation_vector, cv::Mat &c
 
   return 0;
 }
+
+/*
+ * A functions that detects the Harris corners in the frame of a video.
+ */
+int detect_harris_corners(cv::Mat &grayFrame, cv::Mat &frame) {
+  cv::Mat destImg, destImgnorm, destImgnorm_scaled;
+  cv::cornerHarris(grayFrame, destImg, 2, 3, 0.04, cv::BORDER_DEFAULT);
+  cv::normalize(destImg, destImgnorm, 0, 255, cv::NORM_MINMAX, CV_32FC1, cv::Mat());
+  cv::convertScaleAbs(destImgnorm, destImgnorm_scaled);
+
+  for (int i = 0; i < destImgnorm.rows; i++) {
+	for (int j = 0; j < destImgnorm.cols; j++) {
+	  if ((int)destImgnorm.at<float>(i, j) > 200) {
+		cv::circle(frame, cv::Point(j, i), 10, cv::Scalar(0, 0, 255), 2, 8, 0);
+	  }
+	}
+  }
+  return 0;
+}

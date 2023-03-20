@@ -77,4 +77,9 @@ int draw_square(cv::Mat &rotation_vector, cv::Mat &translation_vector, cv::Mat &
  * A function that draws and displays a cuboid on the world.
  */
 int draw_house(cv::Mat &rotation_vector, cv::Mat &translation_vector, cv::Mat &cameraMatrix,
-				cv::Mat &distortion_coefficient, cv::Mat &frame);
+			   cv::Mat &distortion_coefficient, cv::Mat &frame);
+
+/*
+ * A functions that detects the Harris corners in the frame of a video.
+ */
+int detect_harris_corners(cv::Mat &grayFrame, cv::Mat &frame);

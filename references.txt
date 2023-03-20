@@ -1,0 +1,10 @@
+1.https://www.cs.cmu.edu/~16385/s17/Slides/6.2_Harris_Corner_Detector.pdf
+2.https://anothertechs.com/programming/cpp/opencv-corner-harris-cpp/
+3.https://docs.opencv.org/4.x/d5/dae/tutorial_aruco_detection.html
+
+
+
+Track of extensions:
+
+1. completed integrating Aruco Markers into the System.
+2. Made system work with multiple targets.

@@ -66,9 +66,6 @@ int main() {
 	// draw the corners in the chessboard.
 	cv::drawChessboardCorners(frame, cv::Size(9, 6), corners, found);
 
-	cv::imshow(window_name, frame);
-	int k = cv::waitKey(5);
-
 	// if the required number of images for calibration are obtained.
 	if (frame_captured >= 5 && (frames_captured_till_now!=frame_captured)) {
 	  perform_calibration(point_list,
@@ -81,6 +78,8 @@ int main() {
 	  frames_captured_till_now++;
 	}
 
+	cv::imshow(window_name, frame);
+	int k = cv::waitKey(5);
 	if (k=='q') {
 	  std::cout << cameraMatrix << " " << std::endl;
 	  std::cout << distortion_coefficients << " " << std::endl;
@@ -96,6 +95,9 @@ int main() {
 		frame_captured++;
 		//std::cout<<check_validity(point_list, corners_list)<<std::endl;
 	  }
+	} else if (k=='h') {
+	  detect_harris_corners(gray_frame, frame);
+	  cv::imshow("harris_corners", frame);
 	}
   }
   return 0;

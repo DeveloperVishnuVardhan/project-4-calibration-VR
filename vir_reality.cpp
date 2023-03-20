@@ -11,7 +11,7 @@
 
 int main() {
   // open the default camera.
-  cv::VideoCapture cap(1);
+  cv::VideoCapture cap(0);
 
   // if not success, exit the program.
   if (!cap.isOpened()) {
