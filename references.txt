@@ -8,3 +8,6 @@ Track of extensions:
 
 1. completed integrating Aruco Markers into the System.
 2. Made system work with multiple targets.
+3. Not only add a virtual object, but also do something to the target to make it not look
+   like a target anymore.
+4.

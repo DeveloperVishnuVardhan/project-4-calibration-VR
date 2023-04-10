@@ -1,6 +1,9 @@
-//
-// Created by Jyothi vishnu vardhan Kolla on 3/20/23.
-//
+/*
+ * Authors:
+ * 1. Jyothi Vishnu Vardhan Kolla.
+ * 2. Vidya ganesh.
+ * CS-5330 Spring 2023 semester.
+ */
 
 #ifndef MAIN_CPP__EXTENSIONS_H_
 #define MAIN_CPP__EXTENSIONS_H_
@@ -22,3 +25,4 @@ int draw_3d_axes(std::vector<std::vector<cv::Point2f>> &markerCorners,
 				 cv::Mat &objPoints,
 				 cv::Mat cameraMatrix,
 				 cv::Mat distCoeffs);
+

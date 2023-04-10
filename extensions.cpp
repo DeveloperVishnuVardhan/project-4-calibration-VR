@@ -7,6 +7,7 @@
 
 #include<iostream>
 #include<opencv2/opencv.hpp>
+#include<aruco/aruco.h>
 #include "extensions.h"
 
 /*
@@ -40,4 +41,5 @@ int draw_3d_axes(std::vector<std::vector<cv::Point2f>> &markerCorners,
   for (unsigned int i = 0; i < markerIds.size(); i++) {
 	cv::drawFrameAxes(imageCopy, cameraMatrix, distCoeffs, rvecs[i], tvecs[i], 0.1);
   }
+  return 0;
 }

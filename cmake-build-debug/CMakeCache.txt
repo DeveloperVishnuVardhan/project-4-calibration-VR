@@ -222,6 +222,9 @@ Project_4_Calibration_Augmented_Reality_IS_TOP_LEVEL:STATIC=ON
 //Value Computed by CMake
 Project_4_Calibration_Augmented_Reality_SOURCE_DIR:STATIC=/Users/jyothivishnuvardhankolla/Desktop/Project-4-Calibration-Augmented-Reality
 
+//The directory containing a CMake configuration file for aruco.
+aruco_DIR:PATH=/usr/local/share/aruco
+
 //Value Computed by CMake
 imgDisplay.cpp.cpp_BINARY_DIR:STATIC=/Users/jyothivishnuvardhankolla/Desktop/Project-4-Calibration-Augmented-Reality/cmake-build-debug
 

@@ -8,10 +8,11 @@
 #include<iostream>
 #include<opencv2/opencv.hpp>
 #include "operations.h"
+#include "extensions.h"
 
 int main() {
   // open the default camera.
-  cv::VideoCapture cap(0);
+  cv::VideoCapture cap(1);
 
   // if not success, exit the program.
   if (!cap.isOpened()) {
@@ -37,6 +38,8 @@ int main() {
   // Read the distortion Matrix from the xml file.
   fs["dist_coeffs"] >> distortion_coefficient;
   fs.release();
+
+  int darken = 0;
 
   while (true) {
 	cv::Mat frame;
@@ -83,14 +86,29 @@ int main() {
 				 translation_vector,
 				 cameraMatrix,
 				 distortion_coefficient,
-				 frame); // Draw a house to the real-world.
+				 frame,
+				 darken); // Draw a house to the real-world
 	}
 
-	cv::imshow(window_name, frame);
+	cv::aruco::DetectorParameters detectorParams = cv::aruco::DetectorParameters();
+	cv::aruco::Dictionary dictionary = cv::aruco::getPredefinedDictionary((cv::aruco::DICT_6X6_250));
+	cv::aruco::ArucoDetector detector(dictionary, detectorParams);
+
+	std::vector<int> markerIds;
+	std::vector<std::vector<cv::Point2f>> markerCorners;
+	detector.detectMarkers(frame, markerCorners, markerIds);
+
+	cv::Mat imagecopy;
+	frame.copyTo(imagecopy);
+	detect_markers(imagecopy, markerCorners, markerIds);
+	cv::imshow(window_name, imagecopy);
+
 	int k = cv::waitKey(5);
 	if (k=='q') {
 	  cv::destroyWindow(window_name);
 	  break;
+	} else if (k=='r') {
+	  darken = !darken;
 	}
   }
   return 0;

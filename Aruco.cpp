@@ -7,10 +7,11 @@
 #include<iostream>
 #include<opencv2/opencv.hpp>
 #include "extensions.h"
+#include "operations.h"
 
 int main() {
   // open the default camera.
-  cv::VideoCapture cap(0);
+  cv::VideoCapture cap(1);
 
   // if not success exit the program.
   if (!cap.isOpened()) {
@@ -38,10 +39,14 @@ int main() {
   objPoints.ptr<cv::Vec3f>(0)[1] = cv::Vec3f(markerLength/2.f, markerLength/2.f, 0);
   objPoints.ptr<cv::Vec3f>(0)[2] = cv::Vec3f(markerLength/2.f, -markerLength/2.f, 0);
   objPoints.ptr<cv::Vec3f>(0)[3] = cv::Vec3f(-markerLength/2.f, -markerLength/2.f, 0);
+
+  int flag = 0;
   while (true) {
 	cv::Mat frame;
 	bool bsuccess = cap.read(frame);
 
+	cv::Mat gray_frame;
+	cv::cvtColor(frame, gray_frame, cv::COLOR_BGR2GRAY);
 	// break from the loop if frames cannot be captured properly.
 	if (!bsuccess) {
 	  std::cout << "Video camera is disconnected" << std::endl;
@@ -61,10 +66,18 @@ int main() {
 	frame.copyTo(imagecopy);
 	detect_markers(imagecopy, markerCorners, markerIds);
 	draw_3d_axes(markerCorners, markerIds, imagecopy, objPoints, cameraMatrix, distCoeffs);
+	/*if (!markerIds.empty() && flag==1)
+	  perform_homography(imagecopy, markerCorners, markerIds);*/
+
 	cv::imshow("Aruco Detection", imagecopy);
 	int k = cv::waitKey(5);
 	if (k=='q') {
 	  break;
+	} else if (k=='v') {
+	  flag = !flag;
+	} else if (k=='h') {
+	  detect_harris_corners(gray_frame, frame);
+	  cv::imshow("harris_corners", frame);
 	}
   }
   return 0;

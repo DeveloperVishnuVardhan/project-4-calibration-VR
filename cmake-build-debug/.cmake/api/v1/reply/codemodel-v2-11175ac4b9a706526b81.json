@@ -1,0 +1,78 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.1"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "main.cpp",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "Aruco.cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Aruco.cpp-Debug-076b0498ba9bb684944e.json",
+					"name" : "Aruco.cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "main.cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-main.cpp-Debug-cb5308837e7be16bcf0e.json",
+					"name" : "main.cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "vir_reality.cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-vir_reality.cpp-Debug-e57e0eac9f437a5c820b.json",
+					"name" : "vir_reality.cpp",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/Users/jyothivishnuvardhankolla/Desktop/Project-4-Calibration-Augmented-Reality/cmake-build-debug",
+		"source" : "/Users/jyothivishnuvardhankolla/Desktop/Project-4-Calibration-Augmented-Reality"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 4
+	}
+}

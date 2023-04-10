@@ -1,6 +1,9 @@
-//
-// Created by Jyothi vishnu vardhan Kolla on 3/5/23.
-//
+/*
+ * Authors:
+ * 1. Jyothi Vishnu Vardhan Kolla.
+ * 2. Vidya ganesh.
+ * CS-5330 Spring 2023 semester.
+ */
 
 #ifndef MAIN_CPP__OPERATIONS_H_
 #define MAIN_CPP__OPERATIONS_H_
@@ -77,7 +80,7 @@ int draw_square(cv::Mat &rotation_vector, cv::Mat &translation_vector, cv::Mat &
  * A function that draws and displays a cuboid on the world.
  */
 int draw_house(cv::Mat &rotation_vector, cv::Mat &translation_vector, cv::Mat &cameraMatrix,
-			   cv::Mat &distortion_coefficient, cv::Mat &frame);
+			   cv::Mat &distortion_coefficient, cv::Mat &frame, int darken);
 
 /*
  * A functions that detects the Harris corners in the frame of a video.

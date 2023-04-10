@@ -228,8 +228,20 @@ int draw_square(cv::Mat &rotation_vector, cv::Mat &translation_vector, cv::Mat &
  * A function that draws and displays a cuboid on the world.
  */
 int draw_house(cv::Mat &rotation_vector, cv::Mat &translation_vector, cv::Mat &cameraMatrix,
-			   cv::Mat &distortion_coefficient, cv::Mat &frame) {
+			   cv::Mat &distortion_coefficient, cv::Mat &frame, int darken) {
   std::vector<cv::Point3f> objectPoints;
+  // make all pixels in the frame zero.
+  if (darken==1) {
+	for (int i = 0; i < frame.rows; i++) {
+	  auto *rptr = frame.ptr<cv::Vec3b>(i);
+	  for (int j = 0; j < frame.cols; j++) {
+		for (int c = 0; c < 3; c++) {
+		  rptr[j][c] = 0;
+		}
+	  }
+	}
+  }
+
   // Points for floor of the house.
   objectPoints.push_back(cv::Point3f(0, 0, 0));
   objectPoints.push_back(cv::Point3f(8, 0, 0));
@@ -298,7 +310,7 @@ int detect_harris_corners(cv::Mat &grayFrame, cv::Mat &frame) {
 
   for (int i = 0; i < destImgnorm.rows; i++) {
 	for (int j = 0; j < destImgnorm.cols; j++) {
-	  if ((int)destImgnorm.at<float>(i, j) > 200) {
+	  if ((int)destImgnorm.at<float>(i, j) > 180) {
 		cv::circle(frame, cv::Point(j, i), 10, cv::Scalar(0, 0, 255), 2, 8, 0);
 	  }
 	}

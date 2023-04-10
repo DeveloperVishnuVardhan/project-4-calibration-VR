@@ -8,10 +8,11 @@
 #include <iostream>
 #include <opencv2/opencv.hpp>
 #include "operations.h"
+#include <opencv2/core/version.hpp>
 
 int main() {
   // open the default camera.
-  cv::VideoCapture cap(0);
+  cv::VideoCapture cap(1);
 
   // if not success, exit program.
   if (!cap.isOpened()) {
@@ -95,9 +96,6 @@ int main() {
 		frame_captured++;
 		//std::cout<<check_validity(point_list, corners_list)<<std::endl;
 	  }
-	} else if (k=='h') {
-	  detect_harris_corners(gray_frame, frame);
-	  cv::imshow("harris_corners", frame);
 	}
   }
   return 0;
